@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function Nav() {
   return (
-    <nav>
+    <nav className="Nav">
       <Link to="/">Home</Link>
     </nav>
   );

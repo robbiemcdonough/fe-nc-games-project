@@ -7,8 +7,10 @@ import Nav from "./components/Nav";
 
 function App() {
   const [reviews, setReviews] = useState([]);
+
   return (
     <div className="App">
+      <header className="App-header">NC Games</header>
       <Nav />
       <Routes>
         <Route
