@@ -22,21 +22,26 @@
   align-items: center;
   flex-direction: column;
 }
+.Link {
+  color: black;
+}
+
 ul {
-  padding-left: 0%;
+  padding: 1%;
   list-style: none;
+  max-width: 100%;
 }
 .Review-list {
   font-size: 9px;
   margin: 1%;
   min-width: 30em;
-  background-color: #6f7187;
+  background-color: #edede5;
   display: inline-block;
   list-style: none;
   border-radius: 10px;
-  border: 2px;
+  border: 4px;
   border-style: solid;
-  box-shadow: 7px 5px 10px black;
+  box-shadow: 3px 3px 2px black;
 }
 
 .Full-review-button {
@@ -44,5 +49,9 @@ ul {
   margin-bottom: 1%;
   border-radius: 15px;
   background-color: #8b979f;
-  
+}
+
+p {
+  padding-left: 1%;
+  padding-right: 1%;
 }

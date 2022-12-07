@@ -10,6 +10,12 @@ export const getReviews = () => {
   });
 };
 
+export const getSingleReview = (review_id) => {
+  return gamesApi.get(`/api/reviews/${review_id}`).then(({ data: review }) => {
+    return review.review;
+  });
+};
+
 //export get request here
 
 //add loading state
