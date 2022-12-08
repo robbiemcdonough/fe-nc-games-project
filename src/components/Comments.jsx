@@ -20,7 +20,9 @@ function Comments() {
     <div>
       {loadingComments ? (
         <p>Loading...</p>
-      ) : ( 
+      ) : comments.length === 0 ? (
+        <h3 className="Comment-header">No comments have been left</h3>
+      ) : (
         <ul>
           <h3 className="Comment-header">Comments</h3>
           {comments.map((comment) => {
