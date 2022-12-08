@@ -10,7 +10,6 @@ function Home({ reviews, setReviews }) {
     setLoading(true);
     getReviews().then((results) => {
       setReviews(results);
-      console.log(reviews);
 
       setLoading(false);
     });
@@ -23,7 +22,11 @@ function Home({ reviews, setReviews }) {
         <ul>
           {reviews.map((review) => {
             return (
-              <Link className='Link' to={`/reviews/${review.review_id}`} key={review.review_id}>
+              <Link
+                className="Link"
+                to={`/reviews/${review.review_id}`}
+                key={review.review_id}
+              >
                 <li className="Review-list">
                   <h3>{review.title}</h3>
                   <p>Created by: {review.owner}</p>

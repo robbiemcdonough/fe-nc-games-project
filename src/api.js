@@ -16,6 +16,20 @@ export const getSingleReview = (review_id) => {
   });
 };
 
-//export get request here
+export const getCommentsByReview = (review_id) => {
+  return gamesApi
+    .get(`/api/reviews/${review_id}/comments`)
+    .then(({ data: comments }) => {
+      return comments;
+    });
+};
 
-//add loading state
+export const patchVotesByReview = (voteValue, review_id) => {
+  const voteUpdate = { inc_vote: voteValue };
+  return gamesApi
+    .patch(`/api/reviews/${review_id}`, voteUpdate)
+    .then((response) => {})
+    .catch((err) => {
+      console.log(err);
+    });
+};
