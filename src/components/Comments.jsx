@@ -3,25 +3,27 @@ import { useParams } from "react-router-dom";
 import { getCommentsByReview } from "../api";
 
 function Comments() {
-  const [commentClick, setCommentClick] = useState();
+  const [comments, setComments] = useState([]);
+  const [loadingComments, setLoadingComments] = useState(true);
   let { review_id } = useParams();
-  console.log(review_id);
 
   useEffect(() => {
+    setLoadingComments(true);
     getCommentsByReview(review_id).then((results) => {
-      setCommentClick(results.review);
-      console.log(commentClick);
+      setComments(results.review);
+      console.log(comments);
+      setLoadingComments(false);
     });
-  }, []);
+  }, [review_id]);
 
   return (
     <div>
-      {!commentClick ? (
+      {loadingComments ? (
         <p>Loading...</p>
-      ) : (
+      ) : ( 
         <ul>
           <h3 className="Comment-header">Comments</h3>
-          {commentClick.map((comment) => {
+          {comments.map((comment) => {
             return (
               <li className="Comment-list" key={comment.comment_id}>
                 <p>Author: {comment.author}</p>
