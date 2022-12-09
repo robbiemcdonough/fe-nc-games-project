@@ -1,26 +1,32 @@
 .App {
   background-color: #edede5;
   text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .App-header {
-  background-color: #6f7187;
-  height: 4em;
+  background-color:#edede5;
+  padding: 4%;
+  height: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(12px + 2vmin);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-bottom: 1%;
 }
 
 .Nav {
-  font-size: 10px + 1vmin;
+  margin: 1%;
   padding: 1%;
   display: flex;
-  background-color: #788d9c;
+  background-color: #edede5;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-top: solid black;
+  border-bottom: solid black;
 }
 .Link {
   color: black;
@@ -35,6 +41,7 @@ ul {
   font-size: 9px;
   margin: 1%;
   min-width: 30em;
+  max-width: 70em;
   background-color: #edede5;
   display: inline-block;
   list-style: none;
@@ -54,4 +61,28 @@ ul {
 p {
   padding-left: 1%;
   padding-right: 1%;
+}
+
+.Comment-list {
+  font-size: 8px;
+  margin: 1%;
+  min-width: 40em;
+  max-width: 40em;
+  min-height:min-content;
+  background-color: #edede5;
+  display: inline-block;
+  list-style: none;
+  border-radius: 10px;
+  border: 4px;
+  border-style: solid;
+  box-shadow: 2px 2px 2px black;
+}
+
+.Comment-header {
+  border-top: solid black;
+  border-bottom: solid black;
+}
+
+button {
+  margin-bottom: 2%;
 }
