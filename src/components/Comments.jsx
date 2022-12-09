@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentsByReview } from "../api";
+import PostComments from "./PostComment";
 
-function Comments() {
+function Comments({ user }) {
   const [comments, setComments] = useState([]);
   const [loadingComments, setLoadingComments] = useState(true);
   let { review_id } = useParams();
@@ -11,13 +12,13 @@ function Comments() {
     setLoadingComments(true);
     getCommentsByReview(review_id).then((results) => {
       setComments(results.review);
-      console.log(comments);
       setLoadingComments(false);
     });
   }, [review_id]);
 
   return (
     <div>
+      <PostComments user={user} setComments={setComments} comments={comments}/>
       {loadingComments ? (
         <p>Loading...</p>
       ) : comments.length === 0 ? (
