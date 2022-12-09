@@ -4,7 +4,7 @@ import { postCommentsByReview } from "../api";
 
 function PostComments({ user, setComments }) {
   const [newComment, setNewComment] = useState("");
-  // const [isError, setIsError] = useState(false); state to be used later in error handling
+  const [isError, setIsError] = useState(false);
   const [successfulSubmit, setSuccessfulSubmit] = useState(false);
   const [postingComment, setPostingComment] = useState(false);
 
@@ -25,12 +25,13 @@ function PostComments({ user, setComments }) {
       });
     }
 
-    postCommentsByReview(user, newComment, review_id).then(() => {
-      setSuccessfulSubmit(true);
-      //   .catch((error) => {
-      //     setIsError(true);
-      //   });
-    });
+    postCommentsByReview(user, newComment, review_id)
+      .then(() => {
+        setSuccessfulSubmit(true);
+      })
+      .catch((error) => {
+        setIsError(true);
+      });
     setTimeout(() => setPostingComment(false), 1000);
 
     setNewComment("");
@@ -38,8 +39,8 @@ function PostComments({ user, setComments }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
+      <form className="Comment-form" onSubmit={handleSubmit}>
+        <textarea
           value={newComment}
           onChange={(event) => setNewComment(event.target.value)}
           placeholder="Write your comment here"
@@ -49,6 +50,7 @@ function PostComments({ user, setComments }) {
           Submit
         </button>
       </form>
+      {isError ? <p>Cannot submit empty comment</p> : null}
       {successfulSubmit ? <p>Comment added</p> : null}
     </div>
   );

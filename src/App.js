@@ -13,8 +13,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">NC Games</header>
-      <Nav />
+      <header className="App-header">NC Games
+      </header>
+      <p id='userName'>Logged in as {user}</p>
+      <Nav 
+      />
       <Routes>
         <Route
           path="/"
