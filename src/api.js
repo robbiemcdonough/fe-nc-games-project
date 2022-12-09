@@ -28,8 +28,13 @@ export const patchVotesByReview = (voteValue, review_id) => {
   const voteUpdate = { inc_vote: voteValue };
   return gamesApi
     .patch(`/api/reviews/${review_id}`, voteUpdate)
-    .then((response) => {})
     .catch((err) => {
       console.log(err);
     });
 };
+
+export const postCommentsByReview = (user, comment, review_id) => {
+  const newComment = {username: user, body: comment}
+  return gamesApi.post(`/api/reviews/${review_id}/comments`, newComment).then((response) => {})
+
+}

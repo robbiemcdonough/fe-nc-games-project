@@ -8,6 +8,7 @@ import SingleReview from "./components/SingleReview";
 import Comments from "./components/Comments";
 
 function App() {
+  const [user, setUser] = useState("tickle122");
   const [reviews, setReviews] = useState([]);
 
   return (
@@ -19,7 +20,10 @@ function App() {
           path="/"
           element={<Home reviews={reviews} setReviews={setReviews} />}
         />
-        <Route path={"/reviews/:review_id"} element={<SingleReview />} />
+        <Route
+          path={"/reviews/:review_id"}
+          element={<SingleReview user={user} />}
+        />
         <Route path={"/reviews/:review_id/comments"} element={<Comments />} />
       </Routes>
     </div>

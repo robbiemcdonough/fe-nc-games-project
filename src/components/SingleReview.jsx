@@ -4,7 +4,8 @@ import { getSingleReview } from "../api";
 import Comments from "./Comments";
 import Votes from "./Votes";
 
-function SingleReview() {
+
+function SingleReview({user}) {
   const [voteCount, setVoteCount] = useState();
   const [singleReview, setSingleReview] = useState();
   const [isShown, setIsShown] = useState(false);
@@ -42,11 +43,12 @@ function SingleReview() {
               voteCount={voteCount}
               setVoteCount={setVoteCount}
             />
+           
             <button onClick={handleClick}>Show Comments</button>
           </li>
         </ul>
       )}
-      {isShown ? <Comments /> : null}
+      {isShown ? <Comments user={user}/> : null}
     </div>
   );
 }
